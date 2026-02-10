@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-pos-printer"
+        version="1.0.0">
+    
+    <name>POS Printer Plugin</name>
+    <description>Cordova Plugin for POS Thermal Printer Integration</description>
+    <license>MIT</license>
+    
+    <js-module src="www/printer.js" name="PosPrinter">
+        <clobbers target="androidPrinter" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PosPrinter">
+                <param name="android-package" value="com.pos.printer.PosPrinter"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+            <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+        </config-file>
+
+        <source-file src="src/android/PosPrinter.java" 
+                     target-dir="src/com/pos/printer" />
+
+        <lib-file src="src/android/libs/PosPrinterSDK.jar" 
+                  target-dir="libs" />
+    </platform>
+</plugin>
