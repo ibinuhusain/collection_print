@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Apparels Collection</title>
+</head>
+
+<body>
+
+<h2>App Ready</h2>
+<button id="printBtn">Print Receipt</button>
+
+<script src="cordova.js"></script>
+<script>
+document.addEventListener("deviceready", function () {
+  console.log("Device ready");
+
+  document.getElementById("printBtn").addEventListener("click", function () {
+    cordova.InAppBrowser.open(
+      "https://aquamarine-mule-238491.hostingersite.com/agent/print-test.php?assignment_id=123",
+      "_system"
+    );
+  });
+});
+</script>
+
+</body>
+</html>

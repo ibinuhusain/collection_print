@@ -1,0 +1,186 @@
+[30-Jan-2026 11:11:54 UTC] Login attempt started at 2026-01-30 11:11:54
+[30-Jan-2026 11:11:54 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:11:54 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:11:54 UTC] Login attempt for username: agent
+[30-Jan-2026 11:11:54 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 39
+[30-Jan-2026 11:11:57 UTC] Login attempt started at 2026-01-30 11:11:57
+[30-Jan-2026 11:11:57 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:11:57 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:11:57 UTC] Login attempt for username: agent
+[30-Jan-2026 11:11:57 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 39
+[30-Jan-2026 11:12:02 UTC] Login attempt started at 2026-01-30 11:12:02
+[30-Jan-2026 11:12:02 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:12:02 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:12:02 UTC] Login attempt for username: admin
+[30-Jan-2026 11:12:02 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 39
+[30-Jan-2026 11:16:20 UTC] Login attempt started at 2026-01-30 11:16:20
+[30-Jan-2026 11:16:20 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:16:20 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:16:20 UTC] Login attempt for username: test
+[30-Jan-2026 11:16:20 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 39
+[30-Jan-2026 11:16:28 UTC] Login attempt started at 2026-01-30 11:16:28
+[30-Jan-2026 11:16:28 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:16:28 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:16:28 UTC] Login attempt for username: agent
+[30-Jan-2026 11:16:28 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 39
+[30-Jan-2026 11:17:42 UTC] Login attempt started at 2026-01-30 11:17:42
+[30-Jan-2026 11:17:42 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:17:42 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:17:42 UTC] Login attempt for username: agent
+[30-Jan-2026 11:17:42 UTC] Login successful for user: agent
+[30-Jan-2026 11:18:32 UTC] Login attempt started at 2026-01-30 11:18:32
+[30-Jan-2026 11:18:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:18:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:18:32 UTC] Login attempt for username: asasa
+[30-Jan-2026 11:18:32 UTC] User not found: asasa
+[30-Jan-2026 11:18:36 UTC] Login attempt started at 2026-01-30 11:18:36
+[30-Jan-2026 11:18:36 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:18:36 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:18:36 UTC] Login attempt for username: agent
+[30-Jan-2026 11:18:37 UTC] Login successful for user: agent
+[30-Jan-2026 11:19:17 UTC] Login attempt started at 2026-01-30 11:19:17
+[30-Jan-2026 11:19:17 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:19:17 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:19:17 UTC] Login attempt for username: agent
+[30-Jan-2026 11:19:17 UTC] Login successful for user: agent
+[30-Jan-2026 11:19:56 UTC] Login attempt started at 2026-01-30 11:19:56
+[30-Jan-2026 11:19:56 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:19:56 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:19:56 UTC] Login attempt for username: agent
+[30-Jan-2026 11:19:56 UTC] Login successful for user: agent
+[30-Jan-2026 11:22:58 UTC] Login attempt started at 2026-01-30 11:22:58
+[30-Jan-2026 11:22:58 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:22:58 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:22:58 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:22:58 UTC] Login successful for user: Agent
+[30-Jan-2026 11:23:08 UTC] Login attempt started at 2026-01-30 11:23:08
+[30-Jan-2026 11:23:08 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:23:08 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:23:08 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:23:08 UTC] Login successful for user: Agent
+[30-Jan-2026 11:23:43 UTC] PHP Warning:  require_once(../includes/config.php): Failed to open stream: No such file or directory in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/error_report.php on line 18
+[30-Jan-2026 11:23:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../includes/config.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/error_report.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/error_report.php on line 18
+[30-Jan-2026 11:27:29 UTC] Login attempt started at 2026-01-30 11:27:29
+[30-Jan-2026 11:27:29 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:27:29 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:27:29 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:27:29 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:28:01 UTC] Login attempt started at 2026-01-30 11:28:01
+[30-Jan-2026 11:28:01 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:28:01 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:28:01 UTC] Login attempt for username: agent
+[30-Jan-2026 11:28:01 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:28:17 UTC] Login attempt started at 2026-01-30 11:28:17
+[30-Jan-2026 11:28:17 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:28:17 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:28:17 UTC] Login attempt for username: agent
+[30-Jan-2026 11:28:17 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:36:14 UTC] Login attempt started at 2026-01-30 11:36:14
+[30-Jan-2026 11:36:14 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:36:14 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:36:14 UTC] Login attempt for username: agent
+[30-Jan-2026 11:36:14 UTC] Looking for config at: /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/config.php
+[30-Jan-2026 11:36:14 UTC] User found: Agent
+[30-Jan-2026 11:36:14 UTC] Stored hash: $2y$10$qeQ4O.rm7AVS7...
+[30-Jan-2026 11:36:14 UTC] Input password: 1234
+[30-Jan-2026 11:36:14 UTC] Login successful for user: agent
+[30-Jan-2026 11:41:40 UTC] Login attempt started at 2026-01-30 11:41:40
+[30-Jan-2026 11:41:40 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:41:40 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:41:40 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:41:40 UTC] Looking for config at: /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/config.php
+[30-Jan-2026 11:41:40 UTC] User found: Agent
+[30-Jan-2026 11:41:40 UTC] Stored hash: $2y$10$8B3hplwfq9ipr...
+[30-Jan-2026 11:41:40 UTC] Input password: agent123
+[30-Jan-2026 11:41:40 UTC] Login successful for user: Agent
+[30-Jan-2026 11:42:06 UTC] Login attempt started at 2026-01-30 11:42:06
+[30-Jan-2026 11:42:06 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:42:06 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:42:06 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:42:06 UTC] Looking for config at: /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/config.php
+[30-Jan-2026 11:42:06 UTC] User found: Agent
+[30-Jan-2026 11:42:06 UTC] Stored hash: $2y$10$8B3hplwfq9ipr...
+[30-Jan-2026 11:42:06 UTC] Input password: agent123
+[30-Jan-2026 11:42:06 UTC] Login successful for user: Agent
+[30-Jan-2026 11:42:25 UTC] Login attempt started at 2026-01-30 11:42:25
+[30-Jan-2026 11:42:25 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 22
+[30-Jan-2026 11:42:25 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 23
+[30-Jan-2026 11:42:25 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:42:25 UTC] Looking for config at: /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/config.php
+[30-Jan-2026 11:42:25 UTC] User found: Agent
+[30-Jan-2026 11:42:25 UTC] Stored hash: $2y$10$8B3hplwfq9ipr...
+[30-Jan-2026 11:42:25 UTC] Input password: agent123
+[30-Jan-2026 11:42:25 UTC] Login successful for user: Agent
+[30-Jan-2026 11:46:32 UTC] Login attempt started at 2026-01-30 11:46:32
+[30-Jan-2026 11:46:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:46:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:46:32 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:46:32 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:46:38 UTC] Login attempt started at 2026-01-30 11:46:38
+[30-Jan-2026 11:46:38 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:46:38 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:46:38 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:46:38 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:48:02 UTC] Login attempt started at 2026-01-30 11:48:02
+[30-Jan-2026 11:48:02 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:48:02 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:48:02 UTC] Login attempt for username: agent
+[30-Jan-2026 11:48:02 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:48:21 UTC] Login attempt started at 2026-01-30 11:48:21
+[30-Jan-2026 11:48:21 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:48:21 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:48:21 UTC] Login attempt for username: agent
+[30-Jan-2026 11:48:21 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:54:39 UTC] Login attempt started at 2026-01-30 11:54:39
+[30-Jan-2026 11:54:39 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:54:39 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:54:39 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:54:39 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:54:45 UTC] Login attempt started at 2026-01-30 11:54:45
+[30-Jan-2026 11:54:45 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:54:45 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:54:45 UTC] Login attempt for username: Agent
+[30-Jan-2026 11:54:45 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:54:49 UTC] Login attempt started at 2026-01-30 11:54:49
+[30-Jan-2026 11:54:49 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:54:49 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:54:49 UTC] Login attempt for username: agent
+[30-Jan-2026 11:54:49 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:59:42 UTC] Login attempt started at 2026-01-30 11:59:42
+[30-Jan-2026 11:59:42 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:59:42 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:59:42 UTC] Login attempt for username: agent
+[30-Jan-2026 11:59:42 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 11:59:46 UTC] Login attempt started at 2026-01-30 11:59:46
+[30-Jan-2026 11:59:46 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 11:59:46 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 11:59:46 UTC] Login attempt for username: agent
+[30-Jan-2026 11:59:46 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 12:00:19 UTC] Login attempt started at 2026-01-30 12:00:19
+[30-Jan-2026 12:00:19 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 12:00:19 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 12:00:19 UTC] Login attempt for username: agent
+[30-Jan-2026 12:00:19 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 12:00:21 UTC] Login attempt started at 2026-01-30 12:00:21
+[30-Jan-2026 12:00:21 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 12:00:21 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 12:00:21 UTC] Login attempt for username: agent
+[30-Jan-2026 12:00:21 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 12:00:32 UTC] Login attempt started at 2026-01-30 12:00:32
+[30-Jan-2026 12:00:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 12:00:32 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 12:00:32 UTC] Login attempt for username: agent
+[30-Jan-2026 12:00:32 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 12:07:30 UTC] Login attempt started at 2026-01-30 12:07:30
+[30-Jan-2026 12:07:30 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 12:07:30 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 12:07:30 UTC] Login attempt for username: agent
+[30-Jan-2026 12:07:30 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
+[30-Jan-2026 12:07:35 UTC] Login attempt started at 2026-01-30 12:07:35
+[30-Jan-2026 12:07:35 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 24
+[30-Jan-2026 12:07:35 UTC] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 25
+[30-Jan-2026 12:07:35 UTC] Login attempt for username: agent
+[30-Jan-2026 12:07:35 UTC] Login error: Database configuration file not found in /home/u931324256/domains/aquamarine-mule-238491.hostingersite.com/public_html/agent/agent-login-process.php on line 41
