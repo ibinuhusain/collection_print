@@ -1,0 +1,31 @@
+{
+  "name": "cordova-plugin-pos-printer",
+  "version": "1.0.0",
+  "description": "Cordova Plugin for POS Thermal Printer Integration",
+  "cordova": {
+    "id": "cordova-plugin-pos-printer",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/cordova-plugin-pos-printer"
+  },
+  "keywords": [
+    "cordova",
+    "printer",
+    "pos",
+    "thermal",
+    "bluetooth",
+    "ecosystem:cordova"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=8.0.0"
+    }
+  ],
+  "author": "Althaf",
+  "license": "MIT"
+}
