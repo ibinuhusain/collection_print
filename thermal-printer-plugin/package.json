@@ -1,0 +1,21 @@
+{
+    "name": "cordova-plugin-thermal-printer",
+    "version": "1.0.0",
+    "description": "Cordova plugin for universal thermal printer support using direct socket connections",
+    "cordova": {
+        "id": "cordova-plugin-thermal-printer",
+        "platforms": [
+            "android"
+        ]
+    },
+    "keywords": [
+        "cordova",
+        "printer",
+        "thermal",
+        "bluetooth",
+        "wifi",
+        "escpos"
+    ],
+    "author": "Your Name",
+    "license": "MIT"
+}
