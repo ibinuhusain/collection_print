@@ -1,25 +1,34 @@
 ```
-# Backup files
-*.bak
+# Cordova/PhoneGap build artifacts
+platforms/
+plugins/
+www/build/
+www/dist/
 
-# Dependencies
+# Node dependencies
 node_modules/
 
-# Logs and temp files
-*.log
-*.tmp
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Environment
+# Log files
+*.log
+
+# Environment files
 .env
 .env.local
 *.env.*
 
-# Editors
-.vscode/
-.idea/
+# Coverage reports
+coverage/
+htmlcov/
+*.coverage
 
-# Build artifacts
-dist/
-build/
-target/
+# Temporary files
+*.tmp
+.DS_Store
+Thumbs.db
 ```

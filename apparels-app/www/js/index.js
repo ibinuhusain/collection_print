@@ -26,4 +26,12 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    
+    // Initialize printer service
+    if (typeof PrinterService !== 'undefined') {
+        window.printerService = new PrinterService();
+        console.log('Printer service initialized');
+    } else {
+        console.warn('PrinterService not found - thermal printer functionality will not be available');
+    }
 }
