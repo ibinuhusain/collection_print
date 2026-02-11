@@ -2,51 +2,57 @@
 
 ## Overview
 
-This document describes the complete thermal printer integration for the Apparels Collection mobile application. The solution supports both Bluetooth and WiFi thermal printers using a Chinese generic 80mm thermal printer SDK.
+This document describes the complete thermal printer integration for the Apparels Collection mobile application. The solution supports both Bluetooth and WiFi thermal printers using direct socket connections for universal compatibility.
 
 ## Components
 
-### 1. Cordova Plugin: `cordova-plugin-pos-printer`
+### 1. Cordova Plugin: `cordova-plugin-thermal-printer`
 
-The core of the printing functionality is a custom Cordova plugin that bridges web-based JavaScript calls to native Android printer SDK functions.
+The core of the printing functionality is a custom Cordova plugin that bridges web-based JavaScript calls to native Android printer functions using direct socket connections.
 
 #### Plugin Structure
 ```
-pos-printer-plugin/
+thermal-printer-plugin/
 ├── package.json
 ├── plugin.xml
 ├── www/
-│   └── printer.js
+│   └── thermal-printer.js
 └── src/
     └── android/
-        ├── PosPrinter.java
-        ├── PosPrinterSDKInterface.java
-        └── libs/
-            └── PosPrinterSDK.jar
+        └── ThermalPrinter.java
 ```
 
 #### Plugin Features
+- Universal thermal printer support via ESC/POS commands
 - Network (WiFi) printer support
 - Bluetooth printer support
+- Direct socket connections (no specific SDK required)
+- Printer discovery capabilities
 - Raw data printing capability
-- POS command support for thermal printers
+- Receipt formatting with automatic capabilities detection
 
 ### 2. JavaScript API
 
-The plugin exposes a JavaScript API accessible through `window.androidPrinter`:
+The plugin exposes a JavaScript API accessible through `window.thermalPrinter`:
 
 ```javascript
-// Connect to network printer
-window.androidPrinter.connectNet(ip, port, successCallback, errorCallback);
+// Discover available printers
+window.thermalPrinter.discoverPrinters(successCallback, errorCallback);
 
 // Connect to Bluetooth printer
-window.androidPrinter.connectBluetooth(deviceId, successCallback, errorCallback);
+window.thermalPrinter.connectBluetooth(deviceId, successCallback, errorCallback);
+
+// Connect to WiFi printer
+window.thermalPrinter.connectWiFi(ipAddress, port, successCallback, errorCallback);
 
 // Print raw data
-window.androidPrinter.printData(data, successCallback, errorCallback);
+window.thermalPrinter.printRaw(data, successCallback, errorCallback);
+
+// Print formatted receipt
+window.thermalPrinter.printReceipt(receiptData, successCallback, errorCallback);
 
 // Disconnect printer
-window.androidPrinter.disconnect(successCallback, errorCallback);
+window.thermalPrinter.disconnect(successCallback, errorCallback);
 ```
 
 ### 3. Printer Service Layer
@@ -57,15 +63,21 @@ The `PrinterService.js` provides a higher-level abstraction:
 // Example usage
 const printerService = window.printerService;
 
+// Discover printers
+const printers = await printerService.discoverPrinters();
+
 // Connect to printer
 await printerService.connect({
-    type: 'bluetooth', // or 'network'
+    type: 'bluetooth', // or 'wifi'
     deviceId: '00:11:22:33:AA:BB' // for bluetooth
-    // ip: '192.168.1.100', port: 9100 // for network
+    // ip: '192.168.1.100', port: 9100 // for wifi
 });
 
 // Print receipt
 await printerService.printReceipt(assignmentData);
+
+// Print custom raw data
+await printerService.printRaw("Custom text to print\n");
 
 // Disconnect
 await printerService.disconnect();
@@ -76,7 +88,7 @@ await printerService.disconnect();
 ### Adding the Plugin to Your Cordova Project
 
 ```bash
-cordova plugin add /path/to/pos-printer-plugin
+cordova plugin add /path/to/thermal-printer-plugin
 ```
 
 ### Required Permissions
@@ -86,12 +98,11 @@ The plugin automatically adds all necessary permissions to your `AndroidManifest
 ```xml
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-feature android:required="true" android:name="android.hardware.usb.host" />
 ```
 
 ## Usage
@@ -100,12 +111,13 @@ The plugin automatically adds all necessary permissions to your `AndroidManifest
 
 The `print-test.php` file provides a comprehensive testing interface for:
 
-1. Connecting to different printer types (Bluetooth/WiFi)
-2. Printing test receipts
-3. Printing custom text
-4. Disconnecting from printers
-5. Real-time status updates
-6. Debugging information
+1. Discovering available Bluetooth printers
+2. Connecting to different printer types (Bluetooth/WiFi)
+3. Printing test receipts
+4. Printing custom text
+5. Disconnecting from printers
+6. Real-time status updates
+7. Debugging information
 
 ### Receipt Formatting
 
@@ -118,11 +130,13 @@ The system uses ESC/POS commands for proper thermal printer formatting:
 
 ## Supported Printers
 
-This solution is designed to work with generic Chinese 80mm thermal printers that support:
+This solution is designed to work with any thermal printer that supports:
 - ESC/POS command set
 - Bluetooth connectivity
 - WiFi/Ethernet connectivity
 - Standard thermal paper (57-80mm)
+
+It provides universal compatibility by using direct socket connections instead of specific manufacturer SDKs.
 
 ## Troubleshooting
 
@@ -131,7 +145,8 @@ This solution is designed to work with generic Chinese 80mm thermal printers tha
 1. **Permission Denied**: Ensure Bluetooth permissions are granted
 2. **Connection Failed**: Verify printer is powered on and discoverable
 3. **Print Quality**: Check thermal paper orientation
-4. **No Response**: Verify printer compatibility
+4. **No Response**: Verify printer compatibility with ESC/POS commands
+5. **Discovery Failure**: Ensure location services are enabled for Bluetooth scanning
 
 ### Debugging
 
@@ -139,6 +154,7 @@ The test page includes comprehensive debugging features:
 - Real-time status updates
 - Connection logs
 - Error messages
+- Printer discovery results
 - Debug information panel
 
 ## Implementation Notes
@@ -157,15 +173,17 @@ The test page includes comprehensive debugging features:
 - Designed for Android devices
 - Requires Bluetooth 4.0+ for BLE support
 - Compatible with most ESC/POS compliant thermal printers
+- Universal solution works with various manufacturers
 
 ## Testing Without Physical Printer
 
-The `print-test.php` page includes a fallback mechanism for development:
+The `print-test.php` page includes comprehensive testing capabilities:
 
 1. Access the test page in the mobile app environment
 2. Use the debug panel to verify plugin availability
-3. Simulate printer connections without physical hardware
-4. Validate receipt formatting before deployment
+3. Discover and connect to actual printers
+4. Test receipt formatting and printing functionality
+5. Validate all printer operations before deployment
 
 ## Future Enhancements
 
@@ -175,3 +193,4 @@ Potential improvements include:
 - Barcode/QR code generation
 - Printer status monitoring
 - Multiple printer queue management
+- Enhanced error recovery mechanisms

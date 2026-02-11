@@ -8,45 +8,52 @@
     .container { max-width: 600px; margin: 0 auto; }
     .form-group { margin-bottom: 15px; }
     label { display: block; margin-bottom: 5px; font-weight: bold; }
-    input, select { width: 100%; padding: 8px; box-sizing: border-box; }
-    button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-right: 10px; }
+    input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-right: 10px; margin-bottom: 5px; }
     button:hover { background-color: #45a049; }
     .btn-secondary { background-color: #008CBA; }
     .btn-secondary:hover { background-color: #007B9A; }
+    .btn-discover { background-color: #FF9800; }
+    .btn-discover:hover { background-color: #e68900; }
     .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
     .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
     .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
     .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    .printer-list { margin-top: 10px; padding: 10px; background-color: #f9f9f9; border-radius: 4px; }
+    .printer-item { padding: 5px 0; cursor: pointer; }
+    .printer-item:hover { background-color: #e9e9e9; }
   </style>
 </head>
 
 <body>
 <div class="container">
   <h2>Thermal Printer Test Page</h2>
-  
+
   <div id="printerStatus" class="status info">Printer Status: Not connected</div>
-  
+
   <div class="form-group">
     <label for="printerType">Printer Type:</label>
     <select id="printerType">
       <option value="bluetooth">Bluetooth</option>
-      <option value="network">Network (WiFi)</option>
+      <option value="wifi">WiFi</option>
     </select>
   </div>
-  
+
   <div id="bluetoothSection">
     <div class="form-group">
       <label for="bluetoothDevice">Bluetooth Device ID/MAC:</label>
       <input type="text" id="bluetoothDevice" placeholder="e.g., 00:11:22:33:AA:BB" value="">
     </div>
+    <button id="discoverBtn" class="btn-discover">Discover Bluetooth Printers</button>
+    <div id="printerList" class="printer-list" style="display:none;"></div>
   </div>
-  
-  <div id="networkSection" style="display:none;">
+
+  <div id="wifiSection" style="display:none;">
     <div class="form-group">
       <label for="printerIp">Printer IP Address:</label>
       <input type="text" id="printerIp" placeholder="e.g., 192.168.1.100" value="192.168.1.100">
     </div>
-    
+
     <div class="form-group">
       <label for="printerPort">Printer Port:</label>
       <input type="text" id="printerPort" placeholder="e.g., 9100" value="9100">
@@ -68,22 +75,22 @@
     <label for="storeName">Store Name:</label>
     <input type="text" id="storeName" value="TEST STORE NAME">
   </div>
-  
+
   <div class="form-group">
     <label for="agentName">Agent Name:</label>
     <input type="text" id="agentName" value="TEST AGENT">
   </div>
-  
+
   <div class="form-group">
     <label for="amountCollected">Amount Collected:</label>
     <input type="text" id="amountCollected" value="Rs. 5,000.00">
   </div>
-  
+
   <div class="form-group">
     <label for="pendingAmount">Pending Amount:</label>
     <input type="text" id="pendingAmount" value="Rs. 2,500.00">
   </div>
-  
+
   <div class="form-group">
     <label for="targetAmount">Target Amount:</label>
     <input type="text" id="targetAmount" value="Rs. 10,000.00">
@@ -100,11 +107,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // DOM elements
     const printerTypeSelect = document.getElementById("printerType");
     const bluetoothSection = document.getElementById("bluetoothSection");
-    const networkSection = document.getElementById("networkSection");
+    const wifiSection = document.getElementById("wifiSection");
     const connectBtn = document.getElementById("connectBtn");
     const printBtn = document.getElementById("printBtn");
     const printCustomBtn = document.getElementById("printCustomBtn");
     const disconnectBtn = document.getElementById("disconnectBtn");
+    const discoverBtn = document.getElementById("discoverBtn");
+    const printerList = document.getElementById("printerList");
     const printerStatus = document.getElementById("printerStatus");
     const debugInfo = document.getElementById("debugInfo");
     const debugOutput = document.getElementById("debugOutput");
@@ -124,10 +133,10 @@ document.addEventListener("DOMContentLoaded", function () {
     printerTypeSelect.addEventListener("change", function() {
         if (printerTypeSelect.value === 'bluetooth') {
             bluetoothSection.style.display = 'block';
-            networkSection.style.display = 'none';
+            wifiSection.style.display = 'none';
         } else {
             bluetoothSection.style.display = 'none';
-            networkSection.style.display = 'block';
+            wifiSection.style.display = 'block';
         }
     });
 
@@ -146,40 +155,81 @@ document.addEventListener("DOMContentLoaded", function () {
         debugInfo.style.display = 'block';
     }
 
+    // Discover Bluetooth printers
+    discoverBtn.addEventListener("click", async function () {
+        try {
+            if (!window.thermalPrinter || !window.printerService) {
+                updateStatus("Thermal printer service not available. Make sure the app is running in Cordova environment.", true);
+                return;
+            }
+
+            logDebug("Discovering Bluetooth printers...");
+            const printers = await window.printerService.discoverPrinters();
+            
+            if (printers && printers.length > 0) {
+                printerList.innerHTML = '<h4>Available Printers:</h4>';
+                
+                printers.forEach(function(printer, index) {
+                    const printerItem = document.createElement('div');
+                    printerItem.className = 'printer-item';
+                    printerItem.innerHTML = `<strong>${printer.name}</strong> (${printer.id}) - ${printer.type}`;
+                    
+                    // Add click event to select this printer
+                    printerItem.addEventListener('click', function() {
+                        bluetoothDevice.value = printer.id;
+                        updateStatus(`Selected printer: ${printer.name} (${printer.id})`);
+                    });
+                    
+                    printerList.appendChild(printerItem);
+                });
+                
+                printerList.style.display = 'block';
+                updateStatus(`${printers.length} printer(s) found. Click on a printer to select it.`);
+            } else {
+                printerList.style.display = 'none';
+                updateStatus("No Bluetooth printers found.", true);
+            }
+        } catch (error) {
+            console.error("Discovery error:", error);
+            updateStatus(`Discovery failed: ${error.message}`, true);
+            printerList.style.display = 'none';
+        }
+    });
+
     // Connect to printer
     connectBtn.addEventListener("click", async function () {
         try {
-            if (!window.androidPrinter || !window.printerService) {
-                updateStatus("Printer service not available. Make sure the app is running in Cordova environment.", true);
+            if (!window.thermalPrinter || !window.printerService) {
+                updateStatus("Thermal printer service not available. Make sure the app is running in Cordova environment.", true);
                 return;
             }
 
             const type = printerTypeSelect.value;
             let connectResult;
 
-            if (type === 'network') {
+            if (type === 'wifi') {
                 const ip = printerIp.value.trim();
                 const port = parseInt(printerPort.value);
-                
+
                 if (!ip || isNaN(port)) {
                     updateStatus("Please enter valid IP address and port", true);
                     return;
                 }
-                
-                logDebug(`Attempting to connect to network printer at ${ip}:${port}`);
+
+                logDebug(`Attempting to connect to WiFi printer at ${ip}:${port}`);
                 connectResult = await window.printerService.connect({
-                    type: 'network',
+                    type: 'wifi',
                     ip: ip,
                     port: port
                 });
             } else if (type === 'bluetooth') {
                 const deviceId = bluetoothDevice.value.trim();
-                
+
                 if (!deviceId) {
                     updateStatus("Please enter Bluetooth device ID/MAC address", true);
                     return;
                 }
-                
+
                 logDebug(`Attempting to connect to Bluetooth printer: ${deviceId}`);
                 connectResult = await window.printerService.connect({
                     type: 'bluetooth',
@@ -216,8 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 target_amount: targetAmount.value || "Rs. 0.00"
             };
 
-            logDebug("Attempting to print receipt with data:", JSON.stringify(assignmentData));
-            
+            logDebug("Attempting to print receipt with ", JSON.stringify(assignmentData));
+
             await window.printerService.printReceipt(assignmentData);
             updateStatus("Receipt printed successfully!");
         } catch (error) {
@@ -240,28 +290,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Format custom text with POS commands
-            let formattedText = '\x1B\x40'; // Initialize
-            formattedText += '\x1B\x61\x01'; // Center align
-            formattedText += '\x1B\x21\x00'; // Normal text
-            formattedText += customText + '\n\n';
-            formattedText += '\x1D\x56\x41\x10'; // Cut paper
-
             logDebug("Attempting to print custom text");
-            
-            // Since printData expects raw data, we'll call the androidPrinter directly
-            await new Promise((resolve, reject) => {
-                window.androidPrinter.printData(formattedText,
-                    (success) => {
-                        updateStatus("Custom text printed successfully!");
-                        resolve(success);
-                    },
-                    (error) => {
-                        updateStatus(`Print failed: ${error.message}`, true);
-                        reject(error);
-                    }
-                );
-            });
+
+            await window.printerService.printRaw(customText + '\n\n');
+            updateStatus("Custom text printed successfully!");
         } catch (error) {
             console.error("Custom print error:", error);
             updateStatus(`Custom print failed: ${error.message}`, true);
@@ -287,10 +319,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Check if printer service is available
     setTimeout(() => {
-        if (window.androidPrinter && window.printerService) {
-            updateStatus("Printer service ready. You can now connect to a printer.");
+        if (window.thermalPrinter && window.printerService) {
+            updateStatus("Thermal printer service ready. You can now connect to a printer.");
         } else {
-            updateStatus("Warning: Printer service not detected. This page works best in the mobile app environment.", true);
+            updateStatus("Warning: Thermal printer service not detected. This page works best in the mobile app environment.", true);
         }
     }, 1000);
 
@@ -298,19 +330,19 @@ document.addEventListener("DOMContentLoaded", function () {
     window.testPrinterCommands = function() {
         // Function to test various printer commands
         console.log("Testing printer commands...");
-        
+
         // Test basic connectivity
-        if (window.androidPrinter) {
-            logDebug("✓ Android printer interface is available");
+        if (window.thermalPrinter) {
+            logDebug("\u2713 Thermal printer interface is available");
         } else {
-            logDebug("✗ Android printer interface is NOT available");
+            logDebug("\u2717 Thermal printer interface is NOT available");
         }
-        
+
         if (window.printerService) {
-            logDebug("✓ Printer service is available");
+            logDebug("\u2713 Printer service is available");
             logDebug("Current connection status: " + (window.printerService.isConnected ? "Connected" : "Not Connected"));
         } else {
-            logDebug("✗ Printer service is NOT available");
+            logDebug("\u2717 Printer service is NOT available");
         }
     };
 });

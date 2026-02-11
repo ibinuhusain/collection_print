@@ -1,1 +1,25 @@
-Nothing needs to be added to .gitignore since only a markdown file (THERMAL_PRINTER_COMPARISON.md) was added, which is a source/config file and should not be ignored.
+```
+# Backup files
+*.bak
+
+# Dependencies
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+target/
+```
