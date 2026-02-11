@@ -5,6 +5,10 @@ var PosPrinter = {
         exec(successCallback, errorCallback, 'PosPrinter', 'connectNet', [ip, port]);
     },
     
+    connectBluetooth: function(deviceId, successCallback, errorCallback) {
+        exec(successCallback, errorCallback, 'PosPrinter', 'connectBluetooth', [deviceId]);
+    },
+    
     printData: function(data, successCallback, errorCallback) {
         exec(successCallback, errorCallback, 'PosPrinter', 'printData', [data]);
     },

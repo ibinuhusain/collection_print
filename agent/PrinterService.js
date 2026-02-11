@@ -31,6 +31,34 @@ class PrinterService {
         }
     }
     
+    // Bluetooth printer connection
+    async connectBluetooth(deviceId) {
+        if (window.androidPrinter) {
+            return new Promise((resolve, reject) => {
+                window.androidPrinter.connectBluetooth(deviceId,
+                    (success) => {
+                        this.isConnected = true;
+                        resolve(success);
+                    },
+                    (error) => reject(error)
+                );
+            });
+        }
+    }
+    
+    // USB printer connection (placeholder)
+    async connectUSB(devicePath) {
+        // Placeholder for USB connection implementation
+        return new Promise((resolve, reject) => {
+            if (window.androidPrinter) {
+                // Currently not implemented in the Java plugin
+                reject(new Error('USB connection not implemented'));
+            } else {
+                reject(new Error('Printer service not available'));
+            }
+        });
+    }
+    
     // Print receipt
     async printReceipt(assignmentData) {
         if (!this.isConnected) {
@@ -83,6 +111,21 @@ class PrinterService {
         receipt += '\x1D\x56\x41\x10'; // Cut command
         
         return receipt;
+    }
+    
+    // Disconnect printer
+    async disconnect() {
+        if (window.androidPrinter) {
+            return new Promise((resolve, reject) => {
+                window.androidPrinter.disconnect(
+                    (success) => {
+                        this.isConnected = false;
+                        resolve(success);
+                    },
+                    (error) => reject(error)
+                );
+            });
+        }
     }
 }
 
