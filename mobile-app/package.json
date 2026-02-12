@@ -1,23 +1,27 @@
 {
-  "name": "apparels-collection-mobile",
+  "name": "io.cordova.thermalprinter",
+  "displayName": "Thermal Printer Demo",
   "version": "1.0.0",
-  "description": "Mobile app for Apparels Collection system",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
-    "start": "npx serve .",
-    "build": "echo 'Build completed'",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "mobile",
-    "apparels",
-    "collection",
-    "cordova",
-    "hybrid"
+    "ecosystem:cordova"
   ],
-  "author": "Apparels Collection Team",
-  "license": "MIT",
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "serve": "^14.2.0"
+    "cordova-android": "^14.0.1",
+    "cordova-plugin-thermal-printer": "file:../thermal-printer-plugin"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-thermal-printer": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
