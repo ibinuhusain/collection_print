@@ -10,7 +10,7 @@
     <author email="ibinuhusain@gmail.com" href="https://cordova.apache.org">
         Althaf
     </author>
-    <content src="https://aquamarine-mule-238491.hostingersite.com/agent/agent-login.php" />
+    <content src="index.html" />
     
    
     <access origin="*" />
@@ -123,5 +123,5 @@
     <preference name="SplashScreenBackgroundColor" value="#1976d2" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <plugin name="cordova-plugin-thermal-printer" spec="../plugins/thermal-printer-plugin" />
+    <plugin name="cordova-plugin-thermal-printer" spec="../thermal-printer-plugin" />
 </widget>

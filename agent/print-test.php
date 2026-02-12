@@ -24,7 +24,7 @@
     .printer-item:hover { background-color: #e9e9e9; }
   </style>
   <!-- Include the printer bridge -->
-  <script src="js/printer-bridge.js"></script>
+  <script src="printer-bridge.js"></script>
 </head>
 
 <body>
