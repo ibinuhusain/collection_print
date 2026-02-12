@@ -143,20 +143,50 @@ $remaining_assignments = $total_assignments - $completed_count;
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-navigation">
-        <a href="dashboard_agent.php" class="nav-item active">
-            <span class="material-symbols-outlined">home</span>
-            <span>Dashboard</span>
-        </a>
-        <a href="submissions_agent.php" class="nav-item">
-            <span class="material-symbols-outlined">receipt_long</span>
-            <span>Submissions</span>
-        </a>
-        <a href="store_agent.php" class="nav-item">
-            <span class="material-symbols-outlined">storefront</span>
-            <span>Store</span>
-        </a>
-    </div>
-</body>
+        <!-- Print Receipt Button -->
+        <div class="print-section">
+            <button id="printReceiptBtn" class="btn btn-primary">Print Daily Summary</button>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="bottom-navigation">
+            <a href="dashboard_agent.php" class="nav-item active">
+                <span class="material-symbols-outlined">home</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="submissions_agent.php" class="nav-item">
+                <span class="material-symbols-outlined">receipt_long</span>
+                <span>Submissions</span>
+            </a>
+            <a href="store_agent.php" class="nav-item">
+                <span class="material-symbols-outlined">storefront</span>
+                <span>Store</span>
+            </a>
+        </div>
+        
+        <script src="js/printer-bridge.js"></script>
+        <script>
+            document.getElementById('printReceiptBtn').addEventListener('click', function() {
+                // Collect data for the receipt
+                const receiptData = {
+                    storeName: 'Daily Summary',
+                    agentName: '<?php echo $_SESSION['username']; ?>',
+                    amountCollected: 'Rs. <?php echo number_format($total_collected, 2); ?>',
+                    pendingAmount: 'Rs. <?php echo number_format($total_target - $total_collected, 2); ?>',
+                    targetAmount: 'Rs. <?php echo number_format($total_target, 2); ?>',
+                    date: new Date().toLocaleString(),
+                    assignmentsCount: <?php echo $total_assignments; ?>
+                };
+                
+                // Request printing through the hybrid app
+                window.parent.postMessage({
+                    type: 'requestPrint',
+                    payload: {
+                        type: 'receipt',
+                        data: receiptData
+                    }
+                }, '*');
+            });
+        </script>
+    </body>
 </html>
