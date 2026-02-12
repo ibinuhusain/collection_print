@@ -10,7 +10,7 @@
     <author email="ibinuhusain@gmail.com" href="https://cordova.apache.org">
         Althaf
     </author>
-    <content src="index.html" />
+    <content src="hybrid-app.html" />
     
    
     <access origin="*" />

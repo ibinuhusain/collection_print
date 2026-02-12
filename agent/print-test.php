@@ -25,6 +25,8 @@
   </style>
   <!-- Include the printer bridge -->
   <script src="printer-bridge.js"></script>
+  <!-- Include the communication bridge -->
+  <script src="../www/communication-bridge.js"></script>
 </head>
 
 <body>
@@ -148,6 +150,74 @@ document.addEventListener("DOMContentLoaded", function () {
         printerStatus.className = isError ? 'status error' : 'status success';
         logDebug(message);
     }
+    
+    // Enhanced function to handle printer operations through the communication bridge
+    async function executePrinterOperation(operation, params = {}) {
+        try {
+            // Check if we're running inside the hybrid app
+            if (window.pluginBridge && window.pluginBridge.inIframe) {
+                // Use the communication bridge to execute the operation
+                switch(operation) {
+                    case 'discover':
+                        // For discover, we'll just return a message indicating to use the hybrid app's printer panel
+                        updateStatus("Please use the printer controls in the main app to discover printers.", true);
+                        return [];
+                        
+                    case 'connect':
+                        await window.pluginBridge.requestConnect(params);
+                        updateStatus(`Successfully connected to ${params.type} printer`);
+                        return true;
+                        
+                    case 'printReceipt':
+                        await window.pluginBridge.requestPrint('receipt', params);
+                        updateStatus("Receipt printed successfully!");
+                        return true;
+                        
+                    case 'printRaw':
+                        await window.pluginBridge.requestPrint('raw', params);
+                        updateStatus("Custom text printed successfully!");
+                        return true;
+                        
+                    case 'disconnect':
+                        await window.pluginBridge.requestDisconnect();
+                        updateStatus("Printer disconnected successfully");
+                        return true;
+                        
+                    default:
+                        throw new Error(`Unknown operation: ${operation}`);
+                }
+            } else {
+                // Fallback to direct plugin access if not in hybrid app (for standalone testing)
+                if (!window.thermalPrinter || !window.printerService) {
+                    throw new Error("Thermal printer service not available");
+                }
+                
+                switch(operation) {
+                    case 'discover':
+                        return await window.printerService.discoverPrinters();
+                        
+                    case 'connect':
+                        return await window.printerService.connect(params);
+                        
+                    case 'printReceipt':
+                        return await window.printerService.printReceipt(params);
+                        
+                    case 'printRaw':
+                        return await window.printerService.printRaw(params);
+                        
+                    case 'disconnect':
+                        return await window.printerService.disconnect();
+                        
+                    default:
+                        throw new Error(`Unknown operation: ${operation}`);
+                }
+            }
+        } catch (error) {
+            console.error(`${operation} error:`, error);
+            updateStatus(`${operation} failed: ${error.message}`, true);
+            throw error;
+        }
+    }
 
     // Log debug information
     function logDebug(message) {
@@ -160,13 +230,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Discover Bluetooth printers
     discoverBtn.addEventListener("click", async function () {
         try {
-            if (!window.thermalPrinter || !window.printerService) {
-                updateStatus("Thermal printer service not available. Make sure the app is running in Cordova environment.", true);
-                return;
-            }
-
             logDebug("Discovering Bluetooth printers...");
-            const printers = await window.printerService.discoverPrinters();
+            const printers = await executePrinterOperation('discover');
             
             if (printers && printers.length > 0) {
                 printerList.innerHTML = '<h4>Available Printers:</h4>';
@@ -201,13 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Connect to printer
     connectBtn.addEventListener("click", async function () {
         try {
-            if (!window.thermalPrinter || !window.printerService) {
-                updateStatus("Thermal printer service not available. Make sure the app is running in Cordova environment.", true);
-                return;
-            }
-
             const type = printerTypeSelect.value;
-            let connectResult;
 
             if (type === 'wifi') {
                 const ip = printerIp.value.trim();
@@ -219,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 logDebug(`Attempting to connect to WiFi printer at ${ip}:${port}`);
-                connectResult = await window.printerService.connect({
+                await executePrinterOperation('connect', {
                     type: 'wifi',
                     ip: ip,
                     port: port
@@ -233,16 +292,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 logDebug(`Attempting to connect to Bluetooth printer: ${deviceId}`);
-                connectResult = await window.printerService.connect({
+                await executePrinterOperation('connect', {
                     type: 'bluetooth',
                     deviceId: deviceId
                 });
-            }
-
-            if (connectResult) {
-                updateStatus(`Successfully connected to ${type} printer`);
-            } else {
-                updateStatus(`Failed to connect to ${type} printer`, true);
             }
         } catch (error) {
             console.error("Connection error:", error);
@@ -253,11 +306,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Print test receipt
     printBtn.addEventListener("click", async function () {
         try {
-            if (!window.printerService) {
-                updateStatus("Printer service not available", true);
-                return;
-            }
-
             // Get form values
             const assignmentData = {
                 store_name: storeName.value || "Default Store",
@@ -270,8 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             logDebug("Attempting to print receipt with ", JSON.stringify(assignmentData));
 
-            await window.printerService.printReceipt(assignmentData);
-            updateStatus("Receipt printed successfully!");
+            await executePrinterOperation('printReceipt', assignmentData);
         } catch (error) {
             console.error("Print error:", error);
             updateStatus(`Print failed: ${error.message}`, true);
@@ -281,11 +328,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Print custom text
     printCustomBtn.addEventListener("click", async function () {
         try {
-            if (!window.printerService) {
-                updateStatus("Printer service not available", true);
-                return;
-            }
-
             const customText = testContent.value;
             if (!customText.trim()) {
                 updateStatus("Please enter some text to print", true);
@@ -294,8 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             logDebug("Attempting to print custom text");
 
-            await window.printerService.printRaw(customText + '\n\n');
-            updateStatus("Custom text printed successfully!");
+            await executePrinterOperation('printRaw', customText + '\n\n');
         } catch (error) {
             console.error("Custom print error:", error);
             updateStatus(`Custom print failed: ${error.message}`, true);
@@ -305,14 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Disconnect from printer
     disconnectBtn.addEventListener("click", async function () {
         try {
-            if (!window.printerService) {
-                updateStatus("Printer service not available", true);
-                return;
-            }
-
             logDebug("Attempting to disconnect printer");
-            await window.printerService.disconnect();
-            updateStatus("Printer disconnected successfully");
+            await executePrinterOperation('disconnect');
         } catch (error) {
             console.error("Disconnect error:", error);
             updateStatus(`Disconnect failed: ${error.message}`, true);
@@ -323,6 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         if (window.thermalPrinter && window.printerService) {
             updateStatus("Thermal printer service ready. You can now connect to a printer.");
+        } else if (window.pluginBridge && window.pluginBridge.inIframe) {
+            updateStatus("Running inside hybrid app. Printer controls are available in the main app.");
         } else {
             updateStatus("Warning: Thermal printer service not detected. This page works best in the mobile app environment.", true);
         }
