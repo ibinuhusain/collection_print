@@ -1,0 +1,11 @@
+{
+  "appId": "com.apparels.collection",
+  "appName": "Apparels Collection",
+  "webDir": "build",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

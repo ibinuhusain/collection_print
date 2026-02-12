@@ -19,7 +19,8 @@
     "cordova-plugin-cookies": "^0.0.2",
     "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-network-information": "^3.0.0",
-    "cordova-plugin-pos-printer": "file:plugins/pos-printer-plugin",
+    "cordova-plugin-pos-printer": "file:../pos-printer-plugin",
+    "cordova-plugin-thermal-printer": "file:../thermal-printer-plugin",
     "cordova-plugin-wkwebview-engine": "^1.2.2"
   },
   "cordova": {
@@ -33,7 +34,8 @@
       "cordova-plugin-cookies": {},
       "cordova-plugin-androidx": {},
       "cordova-plugin-androidx-adapter": {},
-      "cordova-plugin-pos-printer": {}
+      "cordova-plugin-pos-printer": {},
+      "cordova-plugin-thermal-printer": {}
     }
   }
 }
